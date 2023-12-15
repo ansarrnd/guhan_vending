@@ -4,6 +4,8 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
@@ -14,6 +16,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.net.URL;
 import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
@@ -25,6 +28,9 @@ public class Controller implements Observer {
 
     @FXML
     public Label price;
+
+    @FXML
+    public Button buy;
 
     @FXML
     private ListView<Product> listView;
@@ -43,6 +49,7 @@ public class Controller implements Observer {
         selectionModel.selectedItemProperty().addListener((observableValue, oldProduct, product) -> {
             itemName.setText(product.getItemName());
             price.setText(product.getPrice());
+            ProductSingleton.getInstance().selected = product;
         });
 
         Menu menu = menuBar.getMenus().get(0);
@@ -91,6 +98,8 @@ public class Controller implements Observer {
             setItems();
         });
 
+        setOnClickBuy();
+
         ProductSingleton.getInstance().addObserver(this);
     }
 
@@ -113,5 +122,19 @@ public class Controller implements Observer {
     public void update(Observable o, Object arg) {
         listView.getItems().clear();
         listView.getItems().addAll(ProductSingleton.getInstance().products);
+    }
+
+    private void setOnClickBuy() {
+        buy.setOnAction(actionEvent -> {
+            Stage stage = new Stage();
+            stage.setTitle("Vending Machine");
+            Label purchase = new Label("Thank you for Purchase");
+            Label itemName = new Label(ProductSingleton.getInstance().selected.itemName);
+            Label price = new Label(ProductSingleton.getInstance().selected.price);
+            VBox vBox = new VBox(purchase, itemName, price);
+            Scene scene = new Scene(vBox, 200, 200);
+            stage.setScene(scene);
+            stage.show();
+        });
     }
 }
