@@ -52,12 +52,9 @@ public class Controller implements Observer {
         addProducts.setOnAction(actionEvent -> {
             Stage stage = new Stage();
             FileChooser fileChooser = new FileChooser();
-            fileChooser.setInitialDirectory(new File("src"));
-            fileChooser.setInitialFileName("myfile.txt");
 
             fileChooser.getExtensionFilters().addAll(
                     new FileChooser.ExtensionFilter("Text Files", "*.txt")
-                    ,new FileChooser.ExtensionFilter("HTML Files", "*.htm")
             );
 
             Button button = new Button("Select File");
