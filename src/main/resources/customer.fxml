@@ -10,6 +10,7 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuItem?>
 <?import org.openjfx.ProductCellFactory?>
+<?import javafx.scene.control.Button?>
 <AnchorPane fx:controller="org.openjfx.Controller" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ListView fx:id="listView" layoutY="27.0" prefHeight="297.0" prefWidth="600.0" orientation="HORIZONTAL">
@@ -17,22 +18,22 @@
             <ProductCellFactory />
          </cellFactory>
       </ListView>
-      <Label layoutX="274.0" layoutY="330.0" text="Item Name :">
+      <Label layoutX="35.0" layoutY="330.0" text="Item Name :">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="itemName" layoutX="374.0" layoutY="330.0" text="Nescafe 100ML">
+      <Label fx:id="itemName" layoutX="151.0" layoutY="330.0">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="319.0" layoutY="359.0" text="Price :">
+      <Label layoutX="80.0" layoutY="359.0" text="Price :">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="price" layoutX="374.0" layoutY="359.0" text="RM 3.00">
+      <Label fx:id="price" layoutX="151.0" layoutY="359.0">
          <font>
             <Font size="18.0" />
          </font>
@@ -43,5 +44,6 @@
             <MenuItem mnemonicParsing="false" text="Reset"/>
          </Menu>
       </MenuBar>
+      <Button fx:id="buy" layoutX="448.0" layoutY="329.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="138.0" text="Buy" />
    </children>
 </AnchorPane>

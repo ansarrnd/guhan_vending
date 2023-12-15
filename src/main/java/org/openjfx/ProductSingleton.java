@@ -10,6 +10,8 @@ public class ProductSingleton extends Observable {
     private static ProductSingleton productSingleton;
     ObservableList<Product> products = FXCollections.observableArrayList();
 
+    Product selected = null;
+
     private ProductSingleton() {}
 
     public static ProductSingleton getInstance() {
