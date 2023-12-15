@@ -6,9 +6,9 @@ import java.util.Objects;
 
 public class Product implements Comparable<Product> {
 
-    private String itemName;
-    private String price;
-    private String description;
+    public String itemName;
+    public String price;
+    public String description;
 
     public String getItemName() {
         return itemName;
